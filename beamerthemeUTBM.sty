@@ -1,0 +1,160 @@
+%
+% Copyright (c) 2010 Manuel Vonthron <manuel.vonthron@acadis.org> 
+%
+% This file may be distributed and/or modified under the terms of 
+% the Do What The Fuck You Want To Public License, Version 2
+% 
+
+
+\mode<presentation>
+
+\def\beamer@utbm@value@true{true}
+\def\beamer@utbm@value@false{false}
+\def\beamer@utbm@value@empty{}
+\def\beamer@utbm@value@fullnav{fullnav}
+\def\beamer@utbm@value@shortnav{shortnav}
+\def\beamer@utbm@value@utbm{utbm}
+
+\def\beamer@utbm@dept{}
+\def\beamer@utbm@tuteur{}
+\def\beamer@utbm@suiveur{}
+\def\beamer@utbm@shownavigation{false}
+\def\beamer@utbm@header{}
+\def\beamer@utbm@logo{}
+\def\beamer@utbm@titlepageimage{}
+
+
+\DeclareOptionBeamer{dept}[]{\def\beamer@utbm@dept{#1}}
+\DeclareOptionBeamer{tuteur}[]{\def\beamer@utbm@tuteur{#1}}
+\DeclareOptionBeamer{suiveur}[]{\def\beamer@utbm@suiveur{#1}}
+\DeclareOptionBeamer{shownavigation}{\def\beamer@utbm@shownavigation{#1}}
+\DeclareOptionBeamer{header}[fullnav]{\def\beamer@utbm@header{#1}}
+\DeclareOptionBeamer{logo}[]{\def\beamer@utbm@logo{#1}}
+\DeclareOptionBeamer{titlepageimage}[]{\def\beamer@utbm@titlepageimage{#1}}
+
+\ProcessOptionsBeamer
+
+
+
+
+\useinnertheme{circles}
+\useoutertheme{shadow}
+
+\usecolortheme{UTBM}
+
+\pgfdeclareimage[height=2em]{utbmlogo}{utbmlogo.pdf}
+
+\ifx\beamer@utbm@logo\beamer@utbm@value@empty\relax\else
+  \pgfdeclareimage[height=2em]{otherlogo}{\beamer@utbm@logo}
+\fi
+
+\ifx\beamer@utbm@titlepageimage\beamer@utbm@value@empty\relax\else
+  \pgfdeclareimage[width=\paperwidth]{titlepageimage}{\beamer@utbm@titlepageimage}
+\fi
+
+\ifx\beamer@utbm@shownavigation\beamer@utbm@value@false
+  \setbeamertemplate{navigation symbols}{}
+\fi
+
+
+% TITLE PAGE
+\defbeamertemplate*{title page}{utbm}
+{
+  \setbeamertemplate*{navigation symbols}{}
+  \thispagestyle{empty}
+  \parskip0pt\vskip-1em
+  \begin{beamercolorbox}[wd=\paperwidth]{titlepage imageline}
+    \pgfuseimage{titlepageimage}
+  \end{beamercolorbox}
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.4em]{titlepage utbmline}
+    {\tiny{\bfseries UNIVERSIT\'E DE TECHNOLOGIE} DE BELFORT-MONTB\'ELIARD}
+  \end{beamercolorbox}
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.4em]{titlepage titleline}
+    {\Large\inserttitle}
+  \end{beamercolorbox}
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.4em]{titlepage subtitleline}
+    {\scriptsize \insertsubtitle}
+  \end{beamercolorbox}
+  \nointerlineskip
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.5\paperheight,leftskip=1em,sep=0.4em]{titlepage authorline}
+    {\bfseries \insertauthor} 
+    \ifx\beamer@utbm@tuteur\beamer@utbm@value@empty\relax\else
+      \quad {\scriptsize \beamer@utbm@dept} 
+    \fi \\
+    \vspace{-0.5em} {\scriptsize \insertdate} \\
+    %
+    \vspace*{1em}
+    \insertinstitute \\
+    \vspace*{3em}
+    %
+    \ifx\beamer@utbm@tuteur\beamer@utbm@value@empty
+      \vspace*{1em}
+    \else
+      {\scriptsize Tuteur entreprise : \beamer@utbm@tuteur} \\
+    \fi
+    %
+    \ifx\beamer@utbm@suiveur\beamer@utbm@value@empty
+      \vspace*{1em}
+    \else
+      \vspace{-0.5em}
+      {\scriptsize Suiveur UTBM : \beamer@utbm@suiveur} \\
+    \fi
+    {\scriptsize www.utbm.fr}
+  \end{beamercolorbox}
+  \vskip0pt plus 1filll
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2em,leftskip=1em,rightskip=1em,sep=0.2em,dp=0ex]{titlepage logoline}
+    \pgfuseimage{utbmlogo}
+    \ifx\beamer@utbm@logo\beamer@utbm@value@empty\relax\else
+      \hfill\pgfuseimage{otherlogo}
+    \fi
+  \end{beamercolorbox}
+}
+
+
+% FOOTER
+\defbeamertemplate*{footline}{utbm}
+{
+  \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.4em]{footerline}
+    \insertshorttitle\;--\;\insertauthor \hfill \insertframenumber/\inserttotalframenumber\;--\;{\bfseries www.utbm.fr}
+  \end{beamercolorbox}  
+}
+
+
+% HEADER
+\defbeamertemplate*{headline}{utbm}%
+{
+  \ifx\beamer@utbm@header\beamer@utbm@value@fullnav
+    \begin{beamercolorbox}[wd=\paperwidth]{headerline fullnav}
+      \begin{minipage}{0.4\linewidth}
+        \usebeamercolor{headerline fullnav}\insertsectionnavigation{0.4\paperwidth}
+      \end{minipage}
+      \hspace{1em}
+      \begin{minipage}{0.4\linewidth}
+        \usebeamercolor{headerline fullnav}\insertsubsectionnavigation{0.4\paperwidth}
+      \end{minipage}
+    \end{beamercolorbox}
+  \else\ifx\beamer@utbm@header\beamer@utbm@value@shortnav
+    \begin{beamercolorbox}[wd=\paperwidth]{headerline shortnav}
+      \insertnavigation{\paperwidth}
+    \end{beamercolorbox}
+  \else  
+    \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.6em]{headerline utbm}
+      {\tiny{\bfseries UNIVERSIT\'E DE TECHNOLOGIE} DE BELFORT-MONTB\'ELIARD}
+    \end{beamercolorbox}
+  \fi\fi
+}
+
+% FRAMETITLE
+%~ \defbeamertemplate*{frametitle}{utbm}
+%~ {
+  %~ \nointerlineskip
+  %~ \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.6em,shadow=true]{titleline}
+    %~ \insertframetitle
+  %~ \end{beamercolorbox}
+%~ }
+
+\mode
+<all>

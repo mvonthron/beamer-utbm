@@ -1,5 +1,6 @@
 %
-% Copyright (c) 2010 Manuel Vonthron <manuel.vonthron@acadis.org> 
+% Copyright (c) 2010 
+% Manuel Vonthron - <manuel DOT vonthron AT acadis DOT org>
 %
 % This file may be distributed and/or modified under the terms of 
 % the Do What The Fuck You Want To Public License, Version 2
@@ -60,11 +61,14 @@
 % TITLE PAGE
 \defbeamertemplate*{title page}{utbm}
 {
-  \setbeamertemplate*{navigation symbols}{}
   \thispagestyle{empty}
   \parskip0pt\vskip-1em
   \begin{beamercolorbox}[wd=\paperwidth]{titlepage imageline}
-    \pgfuseimage{titlepageimage}
+    \ifx\beamer@utbm@titlepageimage\beamer@utbm@value@empty
+      \vspace*{4em}
+    \else
+      \pgfuseimage{titlepageimage}
+    \fi
   \end{beamercolorbox}
   \nointerlineskip
   \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.4em]{titlepage utbmline}
@@ -146,15 +150,6 @@
     \end{beamercolorbox}
   \fi\fi
 }
-
-% FRAMETITLE
-%~ \defbeamertemplate*{frametitle}{utbm}
-%~ {
-  %~ \nointerlineskip
-  %~ \begin{beamercolorbox}[wd=\paperwidth,leftskip=1em,sep=0.6em,shadow=true]{titleline}
-    %~ \insertframetitle
-  %~ \end{beamercolorbox}
-%~ }
 
 \mode
 <all>

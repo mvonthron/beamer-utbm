@@ -1,13 +1,13 @@
 UTBM : thème pour Beamer (LaTeX)
 ================================
-Manuel Vonthron <manuel.vonthron@acadis.org>
+Manuel Vonthron - <manuel DOT vonthron AT acadis DOT org>
 Version 0.1 - 2010
 
 
 INSTALLATION
 ------------
-* Copier le dossier beamer-utbm dans le répertoire
-    des thèmes Beamer
+* Copier le dossier beamer-utbm dans le répertoire des thèmes Beamer
+  (le dossier example/ peut être enlevé pour alléger)
     ex : /usr/share/texmf/tex/latex/beamer/themes/theme/
         (exécuter `locate Warsaw.sty` devrait indiquer le bon chemin)
 * Mettre à jour l'index TeX (selon votre distribution LaTeX)

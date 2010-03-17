@@ -30,7 +30,7 @@ ex:
   la page de titre afin de partir d'une "page blanche".
   ex:
     \begin{frame}[plain]
-      Lorem ipsum dolor sit amet.
+      \titlepage
     \end{frame}
 
 

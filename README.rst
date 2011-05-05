@@ -2,6 +2,8 @@ UTBM : thème pour Beamer (LaTeX)
 ================================
 Manuel Vonthron - <manuel DOT vonthron AT acadis DOT org>
 Version 0.1 - 2010
+Rémy HUBSCHER - <remy DOT hubscher AT ionyse DOT com>
+Version 1.0 - 2011
 
 
 INSTALLATION
@@ -23,7 +25,7 @@ Appeler le thème "UTBM" après la déclaration de classe Beamer. Le cas
 ex:
   \documentclass{beamer}
   \usetheme{UTBM}
-  \usecolortheme{UTBM}
+  \usecolortheme{UTBMOfficial}
 
 
 * Il est nécessaire de passer l'option 'plain' à l'environnement accueillant
@@ -48,8 +50,12 @@ ex:
 
 PALETTES
 --------
-Trois palettes sont livrées avec le thème UTBM :
-  * UTBM 
+Quatre palettes sont livrées avec le thème UTBM :
+  * UTBMOfficial 
+      Palette de couleur "officielle" du modèle pour les présentations.
+      Tons rouges, jaunes.
+      http://download.trunat.fr/UTBM/MASQUE_UTBM.pptx
+  * UTBMInternship 
       Palette de couleur "officielle" du modèle pour les soutenances de stage.
       Tons violets, jaunes.
       http://www.utbm.fr/upload/gestionFichiers/STAGES/PPT_UTBM_ST08.ppt

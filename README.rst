@@ -2,6 +2,7 @@ UTBM : thème pour Beamer (LaTeX)
 ================================
 Manuel Vonthron - <manuel DOT vonthron AT acadis DOT org>
 Version 0.1 - 2010
+
 Rémy HUBSCHER - <remy DOT hubscher AT ionyse DOT com>
 Version 1.0 - 2011
 
